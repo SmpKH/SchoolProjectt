@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ថ្នាក់ទី ១០</title>
+    <!-- ទាញយកហ្វុង Battambang ពី Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* កែតម្រូវឈ្មោះហ្វុងត្រង់នេះឱ្យត្រូវគ្នា (Battambang) */
+            font-family: 'Battambang', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1f4068, #162447, #1b1b2f);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Top Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #e43f5a, #ff758c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-nav-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+            flex: 1;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .welcome-banner {
+            margin-bottom: 40px;
+        }
+
+        .welcome-banner h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #e43f5a, #ff758c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .welcome-banner p {
+            color: #9ca3af;
+            font-size: 1.1rem;
+        }
+
+        /* Sections Grid */
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #e5e7eb;
+            border-left: 4px solid #e43f5a;
+            padding-left: 10px;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-card:hover {
+            background: rgba(228, 63, 90, 0.15);
+            border-color: #e43f5a;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(228, 63, 90, 0.3);
+        }
+
+        /* Developer Credit Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        footer span {
+            color: #ff758c;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav>
+        <div class="logo">រៀនបន្ថែម</div>
+        <a href="/schoolproject/index.html" class="back-nav-btn">&#8592; ត្រឡប់ក្រោយ</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="welcome-banner">
+            <h1>ថ្នាក់ទី ១០</h1>
+            <p>សូមជ្រើសរើសបន្ទប់រៀនរបស់អ្នកខាងក្រោមនេះ</p>
+        </div>
+
+        <h3 class="section-title">ថ្នាក់ដែលមាន</h3>
+        
+        <div class="sections-grid">
+            <a href="maintenance.html" class="section-card">ថ្នាក់ 10A</a>
+            <a href="maintenance.html" class="section-card">ថ្នាក់ 10B</a>
+            <a href="maintenance.html" class="section-card">ថ្នាក់ 10C</a>
+            <a href="maintenance.html" class="section-card">ថ្នាក់ 10D</a>
+        </div>
+    </div>
+
+    <!-- Developer Credit Footer -->
+    <footer>
+        រៀបចំ និងអភិវឌ្ឍដោយ <span>កុសល់ វឌ្ឍនា</span> | &copy; 2026
+    </footer>
+
+</body>
+</html>

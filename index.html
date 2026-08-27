@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Battambang', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1f4068, #162447, #1b1b2f);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Top Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 10px;
+        }
+
+        /* ផ្នែក Logo និង Title ឱ្យនៅជិតគ្នា */
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        /* កែទំហំ និងប្តូរពណ៌រូបភាព KavaLogo .png ឱ្យត្រូវនឹងពណ៌អក្សរ */
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            filter: invert(62%) sepia(54%) saturate(4962%) hue-rotate(323deg) brightness(98%) contrast(97%);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-container:hover .brand-logo {
+            transform: scale(1.05);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #e43f5a, #ff758c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ==========================================================
+           កន្លែងសម្រាប់ងាយស្រួលកែឈ្មោះសាលា (School Name Styling)
+           ========================================================== */
+        .school-name {
+            color: #ff4c6a;         /* ពណ៌អក្សរឈ្មោះសាលា */
+            font-size: 1.8rem;       /* ទំហំអក្សរសម្រាប់កុំព្យូទ័រ */
+            font-weight: 300;        /* ភាពក្រាស់នៃអក្សរ */
+            text-align: center;
+            flex-grow: 1;
+            padding: 0 5px;
+        }
+
+        /* ==========================================================
+           កន្លែងសម្រាប់សារេ ទំហំ រូបភាពខាងស្តាំ (Right Image Styling)
+           ========================================================== */
+        .right-image-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .right-icon {
+            width: 38px;             /* 👈 ទទឹងរូបភាពខាងស្តាំ */
+            height: 38px;            /* 👈 កម្ពស់រូបភាពខាងស្តាំ */
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .right-image-container:hover .right-icon {
+            transform: scale(1.05);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 15px;
+            text-align: center;
+            flex: 1;
+            animation: fadeIn 1s ease-in-out;
+            width: 100%;
+        }
+
+        .welcome-banner {
+            margin-bottom: 30px;
+        }
+
+        .welcome-banner h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #e43f5a, #ff758c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .welcome-banner p {
+            color: #9ca3af;
+            font-size: 1rem;
+        }
+
+        /* Grades Section */
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: left;
+            color: #e5e7eb;
+            border-left: 4px solid #e43f5a;
+            padding-left: 10px;
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .grade-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px 10px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .grade-card:hover {
+            background: rgba(228, 63, 90, 0.15);
+            border-color: #e43f5a;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(228, 63, 90, 0.3);
+        }
+
+        /* Developer Credit Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        footer span {
+            color: #ff758c;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================================
+           ការកំណត់សម្រាប់អេក្រង់ទូរស័ព្ទដៃ (Responsive for Mobile Phones)
+           ========================================================== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 15px;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .brand-logo {
+                width: 28px;
+                height: 28px;
+            }
+
+            /* 👈 កែទំហំឈ្មោះសាលាឱ្យតូចល្មមស្រស់ស្អាតនៅលើទូរស័ព្ទ */
+            .school-name {
+                font-size: 0.95rem; 
+            }
+
+            .right-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .welcome-banner h1 {
+                font-size: 1.6rem;
+            }
+
+            .grades-grid {
+                grid-template-columns: repeat(2, 1fr); /* បង្ហាញកាត ២ ជួរឈរលើទូរស័ព្ទ */
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav>
+        <!-- Logo និង Title នៅក្បែរគ្នា (ខាងឆ្វេង) -->
+        <a href="index.html" class="brand-container">
+            <img src="/img/KavaLogo .png" alt="KiloJemmy Logo" class="brand-logo">
+            <div class="logo">រៀនបន្ថែម</div>
+        </a>
+
+        <!-- ឈ្មោះសាលា (នៅចំកណ្តាល - មានកែទំហំស្វ័យប្រវត្តិសម្រាប់ទូរស័ព្ទ) -->
+        <div class="school-name">វិទ្យាល័យវឌ្ឍនៈឈូងលាភ</div>
+
+        <!-- រូបភាពនៅខាងស្តាំ -->
+        <a href="#" class="right-image-container">
+            <img src="/img/ក្រសួងអប់រំ.webp" alt="Right Icon" class="right-icon">
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="welcome-banner">
+            <h1>សូមស្វាគមន៍</h1>
+            <p>ខាងក្រោមជាជម្រើសថ្នាក់ដែលត្រូវជ្រើសរើស</p>
+        </div>
+
+        <h3 class="section-title">កម្រិតថ្នាក់</h3>
+        
+        <div class="grades-grid">
+            <a href="maintenance.html" class="grade-card">ថ្នាក់ទី ៧</a>
+            <a href="maintenance.html" class="grade-card">ថ្នាក់ទី ៨</a>
+            <a href="maintenance.html" class="grade-card">ថ្នាក់ទី ៩</a>
+            <a href="maintenance.html" class="grade-card">ថ្នាក់ទី ១០</a>
+            <a href="maintenance.html" class="grade-card">ថ្នាក់ទី ១១</a>
+            <a href="maintenance.html" class="grade-card">ថ្នាក់ទី ១២</a>
+        </div>
+    </div>
+
+    <!-- Developer Credit Footer -->
+    <footer>
+        រៀបចំ និងអភិវឌ្ឍដោយ <span>កុសល់ វឌ្ឍនា</span> | &copy; 2026
+    </footer>
+
+</body>
+</html>
