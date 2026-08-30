@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ថ្នាក់ទី ១០</title>
-    <!-- ទាញយកហ្វុង Battambang ពី Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -12,7 +11,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* កែតម្រូវឈ្មោះហ្វុងត្រង់នេះឱ្យត្រូវគ្នា (Battambang) */
             font-family: 'Battambang', sans-serif;
         }
 
@@ -23,6 +21,78 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        /* Light Mode Styles */
+        body.light-mode {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2, #e2e8f0);
+            color: #1f2937;
+        }
+
+        body.light-mode nav {
+            background: rgba(255, 255, 255, 0.7);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .logo {
+            background: linear-gradient(90deg, #d63031, #ff7675);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-mode .back-nav-btn {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            color: #1f2937;
+        }
+
+        body.light-mode .back-nav-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .welcome-banner h1 {
+            background: linear-gradient(90deg, #d63031, #ff7675);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-mode .welcome-banner p {
+            color: #4b5563;
+        }
+
+        body.light-mode .section-title {
+            color: #1f2937;
+            border-left-color: #d63031;
+        }
+
+        body.light-mode .section-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #1f2937;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .section-card:hover {
+            background: rgba(214, 48, 49, 0.1);
+            border-color: #d63031;
+            color: #d63031;
+            box-shadow: 0 15px 30px rgba(214, 48, 49, 0.15);
+        }
+
+        body.light-mode footer {
+            background: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            color: #4b5563;
+        }
+
+        body.light-mode footer span {
+            color: #d63031;
+        }
+
+        body.light-mode .theme-toggle-btn {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.15);
         }
 
         /* Top Navigation Bar */
@@ -34,6 +104,7 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.4s ease, border 0.4s ease;
         }
 
         .logo {
@@ -86,7 +157,6 @@
             font-size: 1.1rem;
         }
 
-        /* Sections Grid */
         .section-title {
             font-size: 1.2rem;
             margin-bottom: 20px;
@@ -124,7 +194,7 @@
             box-shadow: 0 15px 30px rgba(228, 63, 90, 0.3);
         }
 
-        /* Developer Credit Footer */
+        /* Developer Credit Footer & Theme Toggle Button */
         footer {
             text-align: center;
             padding: 20px;
@@ -132,6 +202,11 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 0.9rem;
             color: #9ca3af;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.4s ease, border 0.4s ease, color 0.4s ease;
         }
 
         footer span {
@@ -139,27 +214,45 @@
             font-weight: 600;
         }
 
+        .theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+            background: rgba(228, 63, 90, 0.2);
+            border-color: #e43f5a;
+        }
+
+        .theme-toggle-btn svg {
+            width: 22px;
+            height: 22px;
+            transition: transform 0.4s ease;
+        }
+
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation -->
     <nav>
         <div class="logo">រៀនបន្ថែម</div>
-        <a href="index.html" class="back-nav-btn">&#8592; ត្រឡប់ក្រោយ</a>
+        <!-- បានកែតម្រូវ Link ពី /schoolproject/index.html មកជា index.html វិញដើម្បីការពារកុំឱ្យខុស Folder -->
+        <a href="/schoolproject/index.html" class="back-nav-btn">&#8592; ត្រឡប់ក្រោយ</a>
     </nav>
 
-    <!-- Main Content -->
     <div class="container">
         <div class="welcome-banner">
             <h1>ថ្នាក់ទី ១០</h1>
@@ -169,17 +262,57 @@
         <h3 class="section-title">ថ្នាក់ដែលមាន</h3>
         
         <div class="sections-grid">
-            <a href="maintenance.html" class="section-card">ថ្នាក់ 10A</a>
-            <a href="maintenance.html" class="section-card">ថ្នាក់ 10B</a>
-            <a href="maintenance.html" class="section-card">ថ្នាក់ 10C</a>
-            <a href="maintenance.html" class="section-card">ថ្នាក់ 10D</a>
+            <a href="/schoolproject/maintenance.html" class="section-card">ថ្នាក់ 10A</a>
+            <a href="/schoolproject/maintenance.html" class="section-card">ថ្នាក់ 10B</a>
+            <a href="/schoolproject/maintenance.html" class="section-card">ថ្នាក់ 10C</a>
+            <a href="/schoolproject/maintenance.html" class="section-card">ថ្នាក់ 10D</a>
         </div>
     </div>
 
-    <!-- Developer Credit Footer -->
     <footer>
-        រៀបចំ និងអភិវឌ្ឍដោយ <span>កុសល់ វឌ្ឍនា</span> | &copy; 2026
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Night/Day Mode">
+            <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff758c;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+        <div>រៀបចំ និងអភិវឌ្ឍដោយ <span>កុសល់ វឌ្ឍនា</span> | &copy; 2026</div>
     </footer>
 
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        if (body.classList.contains('light-mode')) {
+            setSunIcon();
+        } else {
+            setMoonIcon();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                setSunIcon();
+            } else {
+                localStorage.setItem('theme', 'dark');
+                setMoonIcon();
+            }
+        });
+
+        function setMoonIcon() {
+            themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            themeIcon.style.color = '#ff758c';
+        }
+
+        function setSunIcon() {
+            themeIcon.innerHTML = '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M6.34 17.66l-1.41 1.41"></path><path d="M19.07 4.93l-1.41 1.41"></path>';
+            themeIcon.style.color = '#f59e0b';
+        }
+    </script>
 </body>
 </html>

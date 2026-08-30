@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>កំពុងស្ថិតក្នុងការសាងសង់</title>
-    <!-- ទាញយកហ្វុង Battambang ពី Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -16,18 +15,63 @@
         }
 
         body {
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(135deg, #1f4068, #162447, #1b1b2f);
             color: #ffffff;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            overflow: hidden;
-            position: relative;
+            transition: background 0.4s ease, color 0.4s ease;
         }
 
-        /* ប្រអប់ាតុក្កតា / Glassmorphism Container */
+        /* Light Mode Styles */
+        body.light-mode {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2, #e2e8f0);
+            color: #1f2937;
+        }
+
+        body.light-mode .construction-container {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode h1 {
+            background: linear-gradient(90deg, #d63031, #ff7675);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-mode p {
+            color: #4b5563;
+        }
+
+        body.light-mode footer {
+            background: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            color: #4b5563;
+        }
+
+        body.light-mode footer span {
+            color: #d63031;
+        }
+
+        body.light-mode .theme-toggle-btn {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        /* Main Wrapper to center box */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
         .construction-container {
             text-align: center;
             padding: 50px 40px;
@@ -41,7 +85,6 @@
             animation: fadeIn 1s ease-in-out;
         }
 
-        /* រូបតំណាង Fix Tool (Wrench Icon Animation) */
         .tool-icon {
             font-size: 4rem;
             margin-bottom: 20px;
@@ -73,7 +116,6 @@
             line-height: 1.6;
         }
 
-        /* ប៊ូតុងត្រឡប់ក្រោយ */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -87,7 +129,7 @@
             font-weight: 600;
             border-radius: 30px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(228, 63, 90,0.4);
+            box-shadow: 0 4px 15px rgba(228, 63, 90, 0.4);
         }
 
         .back-btn:hover {
@@ -96,46 +138,124 @@
             box-shadow: 0 6px 20px rgba(228, 63, 90, 0.6);
         }
 
-        /* Animation */
+        /* Footer styling */
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: #9ca3af;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.4s ease, border 0.4s ease, color 0.4s ease;
+        }
+
+        footer span {
+            color: #ff758c;
+            font-weight: 600;
+        }
+
+        .theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+            background: rgba(228, 63, 90, 0.2);
+            border-color: #e43f5a;
+        }
+
+        .theme-toggle-btn svg {
+            width: 22px;
+            height: 22px;
+            transition: transform 0.4s ease;
+        }
+
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes bounceTool {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-8px) rotate(-15deg);
-            }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(-15deg); }
         }
     </style>
 </head>
 <body>
 
-    <div class="construction-container">
-        <!-- Fix Tool SVG Icon -->
-        <div class="tool-icon">
-            <svg viewBox="0 0 24 24">
-                <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.5-7.4-1.3l6.5 6.5-2.8 2.8-6.5-6.5C1.3 7.9 1.8 11 3.8 13c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l1.5-1.5c.4-.4.4-1 0-1.4z"/>
-            </svg>
-        </div>
+    <div class="content-wrapper">
+        <div class="construction-container">
+            <div class="tool-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.5-7.4-1.3l6.5 6.5-2.8 2.8-6.5-6.5C1.3 7.9 1.8 11 3.8 13c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l1.5-1.5c.4-.4.4-1 0-1.4z"/>
+                </svg>
+            </div>
 
-        <h1>ទំព័រនេះកំពុងស្ថិតក្នុងការសាងសង់</h1>
-        <p>នេះគ្រាន់ជាការសាកល្បង ។ <br>សូមអភ័យទោស! យើងខ្ញុំកំពុងរៀបចំ និងអភិវឌ្ឍ។ <br>និងរួចរាល់ឆាប់ៗនេះ។ </p>
-        
-        <!-- ប៊ូតុងត្រឡប់ក្រោយ (អាចប្តូរជា grade7.html ឬ home.html តាមតម្រូវការ) -->
-        <a href="index.html" class="back-btn">
-            &#8592; ត្រឡប់ក្រោយ
-        </a>
+            <h1>ទំព័រនេះកំពុងស្ថិតក្នុងការសាងសង់</h1>
+            <p>នេះគ្រាន់ជាការសាកល្បង ។ <br>សូមអភ័យទោស! យើងខ្ញុំកំពុងរៀបចំ និងអភិវឌ្ឍ។ <br>និងរួចរាល់ឆាប់ៗនេះ។ </p>
+            
+            <a href="/schoolproject/index.html" class="back-btn">&#8592; ត្រឡប់ក្រោយ</a>
+        </div>
     </div>
 
+    <footer>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Night/Day Mode">
+            <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff758c;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+        <div>រៀបចំ និងអភិវឌ្ឍដោយ <span>កុសល់ វឌ្ឍនា</span> | &copy; 2026</div>
+    </footer>
+
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        if (body.classList.contains('light-mode')) {
+            setSunIcon();
+        } else {
+            setMoonIcon();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                setSunIcon();
+            } else {
+                localStorage.setItem('theme', 'dark');
+                setMoonIcon();
+            }
+        });
+
+        function setMoonIcon() {
+            themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            themeIcon.style.color = '#ff758c';
+        }
+
+        function setSunIcon() {
+            themeIcon.innerHTML = '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M6.34 17.66l-1.41 1.41"></path><path d="M19.07 4.93l-1.41 1.41"></path>';
+            themeIcon.style.color = '#f59e0b';
+        }
+    </script>
 </body>
 </html>
